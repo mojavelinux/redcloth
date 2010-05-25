@@ -274,7 +274,7 @@ private
   
   
   def before_transform(text)
-    clean_html(text) if sanitize_html
+     clean_html(text) if sanitize_html
   end
   
   # HTML cleansing stuff

@@ -42,7 +42,7 @@ public class RedclothAttributes extends RedclothScanService.Base {
     this.self = self;
 
     // This is GROSS but necessary for EOF matching
-    this.data = new byte[pe+1];
+    this.data = new char[pe+1];
     System.arraycopy(data, p, this.data, 0, pe);
     this.data[pe] = 0;
 
