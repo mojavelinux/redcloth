@@ -227,14 +227,14 @@ public class RedclothScanService implements BasicLibraryService {
 
     public void strCatEscaped(IRubyObject self, IRubyObject str, char[] data, int ts, int te) {
       //IRubyObject sourceStr = RubyString.newString(self.getRuntime(), data, ts, te-ts);
-      IRubyObject sourceStr = self.getRuntime().newString(new String(data));
+      IRubyObject sourceStr = self.getRuntime().newString(new String(data, ts, te-ts));
       IRubyObject escapedStr = self.callMethod(self.getRuntime().getCurrentContext(), "escape", sourceStr);
       ((RubyString)str).concat(escapedStr);
     }
 
     public void strCatEscapedForPreformatted(IRubyObject self, IRubyObject str, char[] data, int ts, int te) { 
       //IRubyObject sourceStr = RubyString.newString(self.getRuntime(), data, ts, te-ts);
-      IRubyObject sourceStr = self.getRuntime().newString(new String(data));
+      IRubyObject sourceStr = self.getRuntime().newString(new String(data, ts, te-ts));
       IRubyObject escapedStr = self.callMethod(self.getRuntime().getCurrentContext(), "escape_pre", sourceStr);
       ((RubyString)str).concat(escapedStr);
     }
