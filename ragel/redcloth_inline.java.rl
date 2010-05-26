@@ -144,7 +144,6 @@ public class RedclothInline extends RedclothScanService.Base {
       temp = new String(bl.bytes, "UTF8");
       chars = temp.toCharArray();
     } catch (java.io.UnsupportedEncodingException e) {}
-    IRubyObject ret = new RedclothInline(self, chars, 0, temp.length(), refs).inline();
-    return ret; // HERE is a place you start to have wrong data. Dig in more
+    return new RedclothInline(self, chars, 0, temp.length(), refs).inline();
   }
 }
