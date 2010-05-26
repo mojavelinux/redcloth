@@ -280,7 +280,7 @@ public class RedclothScanService implements BasicLibraryService {
 
     public void CAT(IRubyObject H) {
       String temp = new String(data, ts, te-ts);
-      ((RubyString)H).cat(temp.getBytes()); // TODO: CHECK IF CHARSET IS NOT REQUIRED
+      ((RubyString)H).append(runtime.newString(temp));
     }
 
     public void SET_PLAIN_BLOCK(String T) {
