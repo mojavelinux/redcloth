@@ -480,6 +480,8 @@ public class RedclothScanService implements BasicLibraryService {
   public static IRubyObject transform2(IRubyObject self, IRubyObject str) {
     String conv = "";
     RubyString ss = str.convertToString();
+    self.callMethod(self.getRuntime().getCurrentContext(), "before_transform", ss);
+    
     byte[] b = ss.getBytes();
     try {
       conv = new String(b, "UTF8");
@@ -487,7 +489,7 @@ public class RedclothScanService implements BasicLibraryService {
     
     char[] chars = new char[conv.length()];
     conv.getChars(0, conv.length(), chars, 0);
-    self.callMethod(self.getRuntime().getCurrentContext(), "before_transform", ss);
+    
     return transform(self, chars, 0, chars.length, self.getRuntime().getNil());
   }
 
