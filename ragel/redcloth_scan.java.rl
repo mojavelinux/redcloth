@@ -484,7 +484,7 @@ public class RedclothScanService implements BasicLibraryService {
     
     byte[] b = ss.getBytes();
     try {
-      conv = new String(b, "UTF8");
+      conv = new String(b, "UTF8").trim();
     } catch (java.io.UnsupportedEncodingException e) {}
     
     char[] chars = new char[conv.length()];

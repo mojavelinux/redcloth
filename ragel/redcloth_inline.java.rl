@@ -141,7 +141,7 @@ public class RedclothInline extends RedclothScanService.Base {
     char chars[] = new char[0];
     String temp = new String();
     try {
-      temp = new String(bl.bytes, "UTF8");
+      temp = new String(bl.bytes, "UTF8").trim();
       chars = temp.toCharArray();
     } catch (java.io.UnsupportedEncodingException e) {}
     return new RedclothInline(self, chars, 0, temp.length(), refs).inline();
